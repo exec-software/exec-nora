@@ -1,0 +1,31 @@
+# Copyright (C) 2008 - 2026 Execute Software.  All rights reserved.
+# SPDX-License-Identifier: MIT
+
+# Nora generates these into the workspace it manages, not into its own tree,
+# but a workspace is often opened with Nora checked out inside it.
+.nora
+.pipeline/
+.packages/
+sandbox/
+*.pck
+*.config.md
+
+# CMake
+build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Editors and IDEs. Nora is built for CLion, whose project files carry local
+# absolute paths, so they are deliberately not shared.
+.idea/
+.vscode/
+*.iml
+*.swp
+*~
+
+# Operating systems
+.DS_Store
+Thumbs.db
