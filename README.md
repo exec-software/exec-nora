@@ -28,6 +28,9 @@ is left is the project and package model.
 - CMake 3.7 or newer
 - A C++17 compiler. The default flag set is written for GCC and Clang; the
   compiler detection also recognises Intel and MSVC.
+- An x86-64 host. The default flags include `-msse -msse2 -msse3 -mmmx`, which
+  Clang rejects for arm64, so an Apple Silicon or AArch64 workspace needs those
+  flags made conditional in `cxx/nora.cxx.flags.cmake` first.
 
 ## Quick start
 

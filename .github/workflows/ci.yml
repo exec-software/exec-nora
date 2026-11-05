@@ -17,7 +17,11 @@ jobs:
       matrix:
         # The default flag set is written for GCC and Clang. MSVC is recognised
         # by the compiler detection but is not covered here.
-        os: [ubuntu-24.04, macos-latest]
+        #
+        # x86-64 only: the default flags carry -msse -msse2 -msse3 -mmmx, which
+        # Clang rejects outright for arm64, so macos-latest (Apple Silicon)
+        # cannot build a Nora project until those flags become conditional.
+        os: [ubuntu-24.04]
         build_type: [Debug64, Release64]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 15
