@@ -5,6 +5,8 @@ management an IDE normally provides: you arrange code in directories, and the
 build follows the directory tree. Adding a file or a folder does not mean
 editing a build script.
 
+[![Support us on Buy Me a Coffee](https://img.shields.io/badge/Support_us-Buy_Me_a_Coffee-FF5F5F?logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/execsoftware)
+
 ## Why it exists
 
 CLion was, for a long time, a CMake-only IDE, and raw CMake is a poor fit for
@@ -219,6 +221,13 @@ sits inside a larger tree.
 ## Reference
 
 Every public function is listed in [docs/reference.md](docs/reference.md).
+
+## Support our work
+
+We run on your support and donations! Every contribution helps us continue
+building open-source software. Thank you for your continued support.
+
+[Contribute through Buy Me a Coffee](https://www.buymeacoffee.com/execsoftware).
 
 ## License
 
