@@ -29,3 +29,6 @@ Makefile
 # Operating systems
 .DS_Store
 Thumbs.db
+
+# Python bytecode cache from the publication tooling in scripts/
+__pycache__/

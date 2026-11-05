@@ -224,10 +224,16 @@ Every public function is listed in [docs/reference.md](docs/reference.md).
 
 ## Support our work
 
+Nora is built by Execute Software and its community. See
+[CONTRIBUTORS.md](CONTRIBUTORS.md) for the core team and contributor credits.
+
 We run on your support and donations! Every contribution helps us continue
 building open-source software. Thank you for your continued support.
 
 [Contribute through Buy Me a Coffee](https://www.buymeacoffee.com/execsoftware).
+
+For enterprise licensing and support, contact
+[admin@executesoftware.com](mailto:admin@executesoftware.com).
 
 ## License
 

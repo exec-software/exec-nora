@@ -1,0 +1,77 @@
+name: Workspace build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  workspace:
+    name: ${{ matrix.build_type }} on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # The default flag set is written for GCC and Clang. MSVC is recognised
+        # by the compiler detection but is not covered here.
+        os: [ubuntu-24.04, macos-latest]
+        build_type: [Debug64, Release64]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      # Nora expects to be checked out as <workspace>/nora and to manage the
+      # workspace around it, so the repository cannot be the workspace root.
+      - name: Check out Nora inside a workspace
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: nora
+          persist-credentials: false
+
+      - name: Declare a project that the directory tree drives
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p hello/src
+          cat > CMakeLists.txt <<'EOF'
+          cmake_minimum_required( VERSION 3.7 )
+
+          include( ${CMAKE_CURRENT_LIST_DIR}/nora/nora.cmake )
+
+          nora_directory_add_all()
+          nora_finalize()
+          EOF
+          cat > hello/CMakeLists.txt <<'EOF'
+          nora_project_create( Hello )
+          nora_global_project_description( "Continuous integration smoke project" )
+          nora_project_files_source_add_all( src )
+          nora_project_install( EXEC )
+          EOF
+          cat > hello/src/main.cpp <<'EOF'
+          #include <cstdio>
+
+          int main() {
+              std::printf("nora workspace smoke\n");
+              return 0;
+          }
+          EOF
+
+      - name: Prepare the workspace layout and anchor
+        run: ./nora/scripts/install.sh
+
+      # CMake does not re-run a glob on its own, so CI configures from clean.
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+
+      - name: Build
+        run: cmake --build build
+
+      - name: The executable lands in .pipeline/<build type>
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -x ".pipeline/${{ matrix.build_type }}/Hello"
+          output="$(./.pipeline/${{ matrix.build_type }}/Hello)"
+          test "$output" = 'nora workspace smoke'
