@@ -29,7 +29,7 @@ jobs:
       # Nora expects to be checked out as <workspace>/nora and to manage the
       # workspace around it, so the repository cannot be the workspace root.
       - name: Check out Nora inside a workspace
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           path: nora
           persist-credentials: false
