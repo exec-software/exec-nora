@@ -5,7 +5,7 @@ management an IDE normally provides: you arrange code in directories, and the
 build follows the directory tree. Adding a file or a folder does not mean
 editing a build script.
 
-[![Support us on Buy Me a Coffee](https://img.shields.io/badge/Support_us-Buy_Me_a_Coffee-FF5F5F?logo=buymeacoffee&logoColor=white)](https://www.buymeacoffee.com/execsoftware)
+[![Support us on Ko-fi](https://img.shields.io/badge/Support_us-Ko--fi-FF5E5B?logo=kofi&logoColor=white)](https://ko-fi.com/execsoftware)
 
 ## Why it exists
 
@@ -230,10 +230,12 @@ Every public function is listed in [docs/reference.md](docs/reference.md).
 Nora is built by Execute Software and its community. See
 [CONTRIBUTORS.md](CONTRIBUTORS.md) for the core team and contributor credits.
 
-We run on your support and donations! Every contribution helps us continue
-building open-source software. Thank you for your continued support.
+Execute Software develops these projects in the open, and they stay free to
+use. If one of them has been useful to you, a contribution helps fund the time
+that goes into it. It is entirely optional, and it does not change what the
+project gives you or what the license permits.
 
-[Contribute through Buy Me a Coffee](https://www.buymeacoffee.com/execsoftware).
+[Support us on Ko-fi](https://ko-fi.com/execsoftware).
 
 For enterprise licensing and support, contact
 [admin@executesoftware.com](mailto:admin@executesoftware.com).
